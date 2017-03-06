@@ -158,7 +158,6 @@
     var href
     var target = $trigger.attr('data-target')
       || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
-
     return $(target)
   }
 
@@ -199,13 +198,20 @@
   $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
     var $this   = $(this)
 
-    if (!$this.attr('data-target')) e.preventDefault()
-
+    // if (!$this.attr('data-target'))        e.preventDefault();
     var $target = getTargetFromTrigger($this)
     var data    = $target.data('bs.collapse')
     var option  = data ? 'toggle' : $this.data()
 
     Plugin.call($target, option)
   })
-
+  // $(document).on('click.bs.collapse.data-api', '[data-toggle=collapse]', function (e) {
+  //   var $this = $(this);
+  //   // if (!$this.attr('data-target')) e.preventDefault()
+  //   var target = getTargetFromTrigger($this)
+  //   var option = $(target).data('collapse') ? 'toggle' : $this.data();
+  //   $this[$(target).hasClass('in') ? 'addClass' : 'removeClass']('collapsed');
+  //   // $(target).collapse(option);
+  //   Plugin.call(target, option)
+  // })
 }(jQuery);

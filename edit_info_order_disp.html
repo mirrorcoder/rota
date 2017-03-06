@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Редактировать рейсе</title>
+    <title>Редактировать рейс #100 клиента Иванова</title>
     <link href="css/application.min.css" rel="stylesheet">
     <!-- as of IE9 cannot parse css files with more that 4K classes separating in two files -->
     <!--[if IE 9]>
@@ -20,62 +20,7 @@
          */
     </script>
 <!-- common libraries. required for every page-->
-<script src="vendor/jquery/dist/jquery.min.js"></script>
 
-<script src="vendor/jquery-pjax/jquery.pjax.js"></script> <!-- Следует удалить -->
-
-<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
-<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
-<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
-<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
-<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script> <!-- Всплывающее окно в виде подсказки -->
-
-<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
-<script src="vendor/jasny-bootstrap/js/inputmask.js"></script>
-<script src="vendor/jasny-bootstrap/js/fileinput.js"></script>
-<script src="vendor/slimScroll/jquery.slimscroll.min.js"></script> <!-- Есть для React -->
-
-<script src="vendor/widgster/widgster.js"></script> <!-- нужен для базовых функций Обновить, раскрыть, скрыть и закрыть -->
-<!-- widgster.js нет для react js -->
-<script src="vendor/pace.js/pace.js" data-pace-options='{ "target": ".content-wrap", "ghostTime": 1000 }'></script> <!-- Прогресс бар для загрузки страниц -->
-<!-- pace.js есть для react js -->
-<script src="vendor/jquery-touchswipe/jquery.touchSwipe.js"></script> <!-- Плагин для айпадов -->
-<!-- jquery touchSwipe нет для react js -->
-
-<!-- common app js -->
-<!--
-скрипты ниже нужны для инициализации анимации на странице, такие как автосворачивания левого меню,
-дропдаунов, всплывающих нотификаций и так далее, при переносе на реактjs это нужно учитывать и разнести к каждому
-компоненту его скрипт инициализации
--->
-<script src="js/settings.js"></script>
-<script src="js/app.js"></script>
-
-<!-- page specific libs -->
-<script id="test" src="vendor/underscore/underscore.js"></script>
-<!-- underscore работает с react -->
-<script src="vendor/jquery.sparkline/index.js"></script> <!-- маленькие диаграмки -->
-<!-- jquery sparkline есть для реакта -->
-<script src="vendor/d3/d3.min.js"></script>
-<!-- react d3 есть -->
-
-<script src="vendor/rickshaw/rickshaw.min.js"></script> <!-- графики идет вместе с d3 -->
-<!-- Интегрируется с react js -->
-
-<script src="vendor/raphael/raphael-min.js"></script> <!-- Векторная графика -->
-
-<!-- Все для работы с векторной графикой-->
-<script src="vendor/jQuery-Mapael/js/jquery.mapael.js"></script>
-<script src="vendor/jQuery-Mapael/js/maps/usa_states.js"></script>
-<script src="vendor/jQuery-Mapael/js/maps/world_countries.js"></script>
-<script src="vendor/switchery/dist/switchery.min.js"></script>
-
-<script src="vendor/bootstrap_calendar/bootstrap_calendar/js/bootstrap_calendar.min.js"></script>
-<script src="vendor/moment/min/moment.min.js"></script>
-<script src="vendor/jquery-animateNumber/jquery.animateNumber.min.js"></script> <!-- Анимированные числа -->
-<script src="vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-<script src="js/index.js"></script>
 </head>
 <body>
 <nav id="sidebar" class="sidebar" role="navigation">
@@ -88,43 +33,49 @@
              looks good, so adding it and enhancing with notifications -->
         <!-- main notification links are placed inside of .sidebar-nav -->
         <ul class="sidebar-nav">
-            <li>
-                <a href="#">
-                    <span class="icon">
-                        <i class="glyphicon glyphicon-file"></i>
-                    </span>
-                    Найти транспорт
-                </a>
-            </li>
-            <li>
+            <li data-toggle="collapse">
                 <!-- an example of nested submenu. basic bootstrap collapse component -->
                 <a href="#sidebar-dashboard" data-toggle="collapse" data-parent="#sidebar">
                     <span class="icon">
-                        <i class="fa fa-truck"></i>
+                        <i class="fa fa-road"></i>
                     </span>
                     Рейсы
                     <i class="toggle fa fa-angle-down"></i>
                 </a>
                 <ul id="sidebar-dashboard" class="collapse in">
-                    <li class="active"><a href="#">Действующие</a></li>
+                    <li class="active"><a href="#">Новые</a></li>
+                    <li><a href="#">Подтвержденные</a></li>
+                    <li><a href="#">В исполнении</a></li>
                     <li><a href="#">Архив</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#">
+                <!-- an example of nested submenu. basic bootstrap collapse component -->
+                <a href="#sidebar-executers" data-toggle="collapse" data-parent="#sidebar">
                     <span class="icon">
-                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <i class="fa fa-truck"></i>
                     </span>
-                    Наши новости
+                    Транспорт
+                    <i class="toggle fa fa-angle-down"></i>
                 </a>
+                <ul id="sidebar-executers" class="collapse in">
+                    <li><a href="#">Добавить</a></li>
+                    <li><a href="#">Список</a></li>
+                </ul>
             </li>
             <li>
-                <a href="#">
+                <!-- an example of nested submenu. basic bootstrap collapse component -->
+                <a href="#sidebar-crm" data-toggle="collapse" data-parent="#sidebar">
                     <span class="icon">
-                        <i class="glyphicon glyphicon-phone-alt"></i>
+                        <i class="fa fa-briefcase"></i>
                     </span>
-                    Контакты
+                    CRM
+                    <i class="toggle fa fa-angle-down"></i>
                 </a>
+                <ul id="sidebar-crm" class="collapse in">
+                    <li><a href="#">Добавить</a></li>
+                    <li><a href="#">Список</a></li>
+                </ul>
             </li>
             <li>
                 <a href="#">
@@ -348,7 +299,6 @@
                                             </span>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </fieldset>
@@ -370,96 +320,166 @@
                     <div id="collapseOne" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div class="row">
-                    <div class="col-md-3">
-                        <section class="widget bg-gray text-white">
-                            <div class="widget-body clearfix">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <span class="widget-icon">
-                                            <i class="glyphicon glyphicon-ok"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-xs-9">
-                                        <h5 class="no-margin">Номер рейса</h5>
-                                        <p class="h2 no-margin fw-normal">#19922</p>
-                                    </div>
+                                <div class="col-md-3">
+                                    <section class="widget bg-gray text-white">
+                                        <div class="widget-body clearfix">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <span class="widget-icon">
+                                                        <i class="glyphicon glyphicon-ok"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    <h5 class="no-margin">Номер рейса</h5>
+                                                    <p class="h2 no-margin fw-normal">#100</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h5 class="no-margin">Статус заказа</h5>
+                                                    <p class="value4">Ищется транспорт</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <h5 class="no-margin">Статус заказа</h5>
-                                        <p class="value4">Ищется транспорт</p>
-                                    </div>
+                                <div class="col-md-3">
+                                    <section class="widget bg-gray text-white">
+                                        <div class="widget-body clearfix">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <span class="widget-icon">
+                                                        <i class="glyphicon glyphicon-time"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    <h5 class="no-margin">Осталось</h5>
+                                                    <p class="h2 no-margin fw-normal">01:20:33</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <h5 class="no-margin">Дата заказа</h5>
+                                                    <p class="value4">22.02.2017</p>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <h5 class="no-margin">Время заказа</h5>
+                                                    <p class="value4">09:30</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-3">
+                                    <section class="widget bg-success text-white">
+                                        <div class="widget-body clearfix">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <span class="widget-icon">
+                                                        <i class="glyphicon glyphicon-rub"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    <h5 class="no-margin">Цена клиента</h5>
+                                                    <p class="h2 no-margin fw-normal">100000 руб</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <h5 class="no-margin">Цена перевозчика</h5>
+                                                    <p class="value4">80000 руб</p>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <h5 class="no-margin">Заработок</h5>
+                                                    <p class="value4">5000 руб</p>
+                                                </div>
+                                           </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-md-3">
+                                    <section class="widget bg-gray text-white">
+                                        <div class="widget-body clearfix">
+                                            <div class="row">
+                                                <div class="col-xs-offset-2 col-xs-6">
+                                                    <div class="input-group-btn no-margin">
+                                                        <button type="button" class="btn btn-warning btn-lg" data-toggle="tooltip"
+                                                                data-placement="top" title="Рейс на карте"><i class="fa fa-globe"></i></button>
+                                                        <button type="button" class="btn btn-warning btn-lg" data-toggle="tooltip"
+                                                                data-placement="top" title="Подтвердить"><i class="glyphicon glyphicon-chevron-down"></i></button>
+                                                        <button type="button" class="btn btn-warning btn-lg" data-toggle="tooltip"
+                                                                data-placement="top" title="Сохранить"><i class="glyphicon glyphicon-hdd"></i></button>
+                                                        <button type="button" class="btn btn-danger btn-lg" data-toggle="tooltip"
+                                                                data-placement="top" title="Отменить"><i class="glyphicon glyphicon-remove"></i></button>
+                                                   </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
                                 </div>
                             </div>
-                        </section>
-                    </div>
-                    <div class="col-md-3">
-                        <section class="widget bg-gray text-white">
-                            <div class="widget-body clearfix">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <span class="widget-icon">
-                                            <i class="glyphicon glyphicon-time"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-xs-9">
-                                        <h5 class="no-margin">Осталось</h5>
-                                        <p class="h2 no-margin fw-normal">01:20:33</p>
-                                    </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <section class="widget bg-gray text-white">
+                                        <div class="widget-body clearfix">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <span class="widget-icon">
+                                                        <i class="glyphicon glyphicon-user"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <h5 class="no-margin">Компания</h5>
+                                                    <p class="h2 no-margin fw-normal">ООО Рога и Копыта</p>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <button type="button" class="btn btn-warning btn-lg">Подробнее</button>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-4">
+                                                    <h5 class="no-margin">Ответственное лицо</h5>
+                                                    <p class="value5">Иванов Геннадий Павлович</p>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <h5 class="no-margin">Телефон</h5>
+                                                    <p class="value5">+7 (911) 111-66-66</p>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <h5 class="no-margin">Email</h5>
+                                                    <p class="value5">hurkovalopa@gmail.com</p>
+                                                </div>
+                                           </div>
+                                        </div>
+                                    </section>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h5 class="no-margin">Дата заказа</h5>
-                                        <p class="value4">22.02.2017</p>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <h5 class="no-margin">Время заказа</h5>
-                                        <p class="value4">09:30</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="col-md-3">
-                        <section class="widget bg-success text-white">
-                            <div class="widget-body clearfix">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <span class="widget-icon">
-                                            <i class="glyphicon glyphicon-rub"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-xs-9">
-                                        <h5 class="no-margin">Стоимость</h5>
-                                        <p class="h2 no-margin fw-normal">100000 руб</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="col-md-3">
-                        <section class="widget bg-gray text-white">
-                            <div class="widget-body clearfix">
-                                <div class="row">
-                                    <div class="col-xs-offset-1 col-xs-6">
-                                        <div class="input-group-btn no-margin">
-                                            <button type="button" class="btn btn-warning btn-lg" data-toggle="tooltip"
-                                                    data-placement="top" title="Рейс на карте"><i class="fa fa-globe"></i></button>
-                                            <button type="button" class="btn btn-warning btn-lg" data-toggle="tooltip"
-                                                    data-placement="top" title="Распечатать"><i class="fa fa-print"></i></button>
-                                            <button type="button" class="btn btn-warning btn-lg" data-toggle="tooltip"
-                                                    data-placement="top" title="Дублировать"><i class="fa fa-copy"></i></button>
-                                            <button type="button" class="btn btn-warning btn-lg" data-toggle="tooltip"
-                                                    data-placement="top" title="Редактировать"><i class="fa fa-pencil"></i></button>
-                                            <button type="button" class="btn btn-danger btn-lg" data-toggle="tooltip"
-                                                    data-placement="top" title="Отменить"><i class="glyphicon glyphicon-remove"></i></button>
-                                       </div>
-                                    </div>
+                                <div class="col-md-6">
+                                    <section class="widget bg-white">
+                                        <div class="widget-body clearfix">
+                                            <div class="row">
+                                                <div class="col-xs-5"><h4 class="">Выставлен договор</h4></div>
+                                                <div class="col-xs-2">
+                                                    <div class="checkbox-inline checkbox-ios">
+                                                        <label for="checkbox-ios2">
+                                                            <input type="checkbox" id="checkbox-ios2">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-5"><h4 class="">Выставлен счет клиенту</h4></div>
+                                                <div class="col-xs-2">
+                                                    <div class="checkbox-inline checkbox-ios">
+                                                        <label for="checkbox-ios3">
+                                                            <input type="checkbox" id="checkbox-ios3">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
                                 </div>
                             </div>
-                        </section>
-                    </div>
-                </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <section class="widget bg-white">
@@ -479,8 +499,11 @@
                                                         <input id="city_src" type="text" class="form-control input-sm" placeholder="Из какого города"/>
                                                     </div>
 
-                                                    <div class="form-group">
+                                                    <div class="form-group input-group">
                                                         <input id="street_src" type="text" class="form-control input-sm" placeholder="Улица, дом"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="button" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-map-marker"></i></button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-4">
@@ -489,8 +512,11 @@
                                                         <input id="city_dst" type="text" class="form-control input-sm" placeholder="В какой город"/>
                                                     </div>
 
-                                                    <div class="form-group">
+                                                    <div class="form-group input-group">
                                                         <input id="street_dst" type="text" class="form-control input-sm" placeholder="Улица, дом"/>
+                                                        <div class="input-group-btn">
+                                                            <button type="button" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-map-marker"></i></button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-2">
@@ -510,14 +536,73 @@
                                     <section class="widget bg-white">
                                         <div class="widget-body clearfix">
                                             <div class="row">
-                                                <div class="col-xs-12">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                                                        <input id="interval_geo_point_1" type="text" class="form-control" placeholder="Промежуточная точка разгрузки"/>
-                                                        <div class="input-group-btn">
-                                                            <button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                                                <div class="col-xs-6">
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <div class="input-group">
+                                                                <input id="interval_geo_point_1" type="text" class="form-control" placeholder="Промежуточная точка разгрузки"/>
+                                                                <div class="input-group-btn">
+                                                                    <button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-map-marker"></i></button>
+                                                                </div>
+                                                            </div>
                                                         </div>
-
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12 btn-toolbar">
+                                                            <button type="button" class="btn btn-danger btn-block height-50">Удалить точку</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <p class="value4">Режим работы загрузки</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <div class="row">
+                                                                <div class="col-xs-6">
+                                                                    <input id="time-load-from-point-2" type="text" class="form-control" placeholder="с">
+                                                                </div>
+                                                                <div class="col-xs-6">
+                                                                    <input id="time-load-to-point-2" type="text" class="form-control" placeholder="до">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <h4 class="">перерыв</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-6">
+                                                                    <input id="breaktime-load-from-point-2" type="text" class="form-control" placeholder="с">
+                                                                </div>
+                                                                <div class="col-xs-6">
+                                                                    <input id="breaktime-load-to-point-2" type="text" class="form-control" placeholder="до">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="checkbox">
+                                                                <input id="checkbox1-point-2" type="checkbox">
+                                                                <label for="checkbox1-point-2">
+                                                                    Понедельник-Пятница
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkbox">
+                                                                <input id="checkbox2-point-2" type="checkbox">
+                                                                <label for="checkbox2-point-2">
+                                                                    7 дней в неделю
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkbox">
+                                                                <input id="checkbox3-point-2" type="checkbox">
+                                                                <label for="checkbox3-point-2">
+                                                                    Режимный объект
+                                                                </label>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -939,6 +1024,62 @@
     </main>
 </div>
 
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+
+<script src="vendor/jquery-pjax/jquery.pjax.js"></script> <!-- Следует удалить -->
+
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script> <!-- Всплывающее окно в виде подсказки -->
+
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+<script src="vendor/jasny-bootstrap/js/inputmask.js"></script>
+<script src="vendor/jasny-bootstrap/js/fileinput.js"></script>
+<script src="vendor/slimScroll/jquery.slimscroll.min.js"></script> <!-- Есть для React -->
+
+<script src="vendor/widgster/widgster.js"></script> <!-- нужен для базовых функций Обновить, раскрыть, скрыть и закрыть -->
+<!-- widgster.js нет для react js -->
+<script src="vendor/pace.js/pace.js" data-pace-options='{ "target": ".content-wrap", "ghostTime": 1000 }'></script> <!-- Прогресс бар для загрузки страниц -->
+<!-- pace.js есть для react js -->
+<script src="vendor/jquery-touchswipe/jquery.touchSwipe.js"></script> <!-- Плагин для айпадов -->
+<!-- jquery touchSwipe нет для react js -->
+
+<!-- common app js -->
+<!--
+скрипты ниже нужны для инициализации анимации на странице, такие как автосворачивания левого меню,
+дропдаунов, всплывающих нотификаций и так далее, при переносе на реактjs это нужно учитывать и разнести к каждому
+компоненту его скрипт инициализации
+-->
+<script src="js/settings.js"></script>
+<script src="js/app.js"></script>
+
+<!-- page specific libs -->
+<script id="test" src="vendor/underscore/underscore.js"></script>
+<!-- underscore работает с react -->
+<script src="vendor/jquery.sparkline/index.js"></script> <!-- маленькие диаграмки -->
+<!-- jquery sparkline есть для реакта -->
+<script src="vendor/d3/d3.min.js"></script>
+<!-- react d3 есть -->
+
+<script src="vendor/rickshaw/rickshaw.min.js"></script> <!-- графики идет вместе с d3 -->
+<!-- Интегрируется с react js -->
+
+<script src="vendor/raphael/raphael-min.js"></script> <!-- Векторная графика -->
+
+<!-- Все для работы с векторной графикой-->
+<script src="vendor/jQuery-Mapael/js/jquery.mapael.js"></script>
+<script src="vendor/jQuery-Mapael/js/maps/usa_states.js"></script>
+<script src="vendor/jQuery-Mapael/js/maps/world_countries.js"></script>
+<script src="vendor/switchery/dist/switchery.min.js"></script>
+
+<script src="vendor/bootstrap_calendar/bootstrap_calendar/js/bootstrap_calendar.min.js"></script>
+<script src="vendor/moment/min/moment.min.js"></script>
+<script src="vendor/jquery-animateNumber/jquery.animateNumber.min.js"></script> <!-- Анимированные числа -->
+<script src="vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/index.js"></script>
 <!-- page specific js -->
 <!--<script src="js/index.js"></script>-->
 

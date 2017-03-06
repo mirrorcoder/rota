@@ -19,6 +19,8 @@ $(function(){
         $("#time-unload-break-from").inputmask({mask: "99:99"});
         $("#time-unload-break-to").inputmask({mask: "99:99"});
         new Switchery(document.getElementById('checkbox-ios1'));
+        new Switchery(document.getElementById('checkbox-ios2'));
+        new Switchery(document.getElementById('checkbox-ios3'));
     }
 
     pjaxPageLoad();
